@@ -43,7 +43,7 @@ if (!SECRET_RAW) console.error("[boot] WARNING: AGENT_GAMES_HMAC_SECRET is not s
 const keyCandidates = [];
 if (/^[0-9a-fA-F]{64}$/.test(SECRET_RAW)) keyCandidates.push(Buffer.from(SECRET_RAW, "hex"));
 if (SECRET_RAW) keyCandidates.push(Buffer.from(SECRET_RAW, "utf8"));
-const SIGN_KEY = keyCandidates[0] || Buffer.alloc(0);
+const SIGN_KEY = SECRET_RAW ? Buffer.from(SECRET_RAW, "utf8") : Buffer.alloc(0);
 
 function hmacHex(key, raw) {
   return crypto.createHmac("sha256", key).update(raw).digest("hex");
