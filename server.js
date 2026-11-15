@@ -28,8 +28,8 @@ const KURIER_URL = "https://api.kurier.xyz/api/v1";
 const VK_HASH = "0x6b79c6012a6d8651f3e13bc4d2a20370280ab49700c90c5316d4168bfbad77b0";
 const PRIME = BigInt("21888242871839275222246405745257275088548364400416034343698204186575808495617"); // BN254 scalar field
 const SEEN_PATH = process.env.SEEN_PATH || path.join(__dirname, "data", "seen.json");
-const WASM = path.join(__dirname, "artifacts", "gatekeeper.wasm");
-const ZKEY = path.join(__dirname, "artifacts", "gatekeeper_final.zkey");
+const WASM = path.join(__dirname, "gatekeeper.wasm");
+const ZKEY = path.join(__dirname, "gatekeeper_final.zkey");
 const DEADLINE_MS = 50000; // hard guard; platform deadline is 60 s
 
 if (!SECRET_RAW) console.error("[boot] WARNING: AGENT_GAMES_HMAC_SECRET is not set — all signed requests will fail verification.");
